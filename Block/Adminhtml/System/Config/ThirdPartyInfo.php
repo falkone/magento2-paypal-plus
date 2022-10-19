@@ -54,7 +54,7 @@ class ThirdPartyInfo extends \Magento\Config\Block\System\Config\Form\Fieldset
         $html = $this->_getHeaderHtml($element);
         $dummyField = $element->getElements()[0];
 
-        $thirdPartyModuls = $this->_scopeConfig->getValue('payment/iways_paypalplus_payment/third_party_moduls');
+        $thirdPartyModuls = (string)$this->_scopeConfig->getValue('payment/iways_paypalplus_payment/third_party_moduls');
         $thirdPartyMethods = explode(',', $thirdPartyModuls);
         foreach ($this->paymentConfig->getActiveMethods() as $paymentMethod) {
             if (in_array($paymentMethod->getCode(), $thirdPartyMethods)) {
